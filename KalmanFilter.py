@@ -1,5 +1,9 @@
 import numpy as np
 from filterpy.kalman import KalmanFilter
+import matplotlib
+matplotlib.use("TkAgg")
+import matplotlib.pyplot as plt
+import yfinance as yf
 
 kf = KalmanFilter(dim_x=2, dim_z=1)
 
@@ -28,10 +32,6 @@ for z in measurement:
     kf.update(z)
     filtered.append(kf.x[0, 0])
 
-import matplotlib
-matplotlib.use("TkAgg")
-print(matplotlib.get_backend())
-import matplotlib.pyplot as plt
 
 print("Measurement:", measurement[:5])
 print("Filtered:", filtered[:5])

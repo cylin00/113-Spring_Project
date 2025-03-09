@@ -33,9 +33,6 @@ for z in measurement:
     filtered.append(kf.x[0, 0])
 
 
-print("Measurement:", measurement[:5])
-print("Filtered:", filtered[:5])
-
 plt.plot(range(len(measurement)), measurement, label='Measurements', linewidth=2)
 plt.plot(range(len(filtered)), filtered, label='Kalman Filter', linewidth=1, linestyle='--')
 plt.legend()
